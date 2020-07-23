@@ -103,6 +103,7 @@ ansible::lint() {
 
   # Enable recursive glob patterns, such as '**/*.yml'.
   shopt -s globstar
+  export ANSIBLE_COLLECTIONS_PATHS="/github/home/.ansible/collections"
   ansible-lint -v --force-color $opts ${TARGETS}
   shopt -u globstar
 }
