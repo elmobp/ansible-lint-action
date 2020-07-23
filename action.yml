@@ -40,6 +40,16 @@ inputs:
       override-deps allows pinning pip packages and there versions. This allows to pin to a target
       package version in order to maintain consistency with local development.
     required: false
+  install-galaxy-collections:
+    default: ''
+    description: |
+      install-galaxy-collections allows you to install extra galaxy collections that are required by your target playbook/role/task
+    required: false
+  install-galaxy-modules:
+    default: ''
+    description: |
+      install-galaxy-modules allows you to install extra galaxy collections that are required by your target playbook/role/task
+    required: false  
 runs:
   using: docker
   image: Dockerfile
@@ -48,3 +58,5 @@ runs:
   env:
     TARGETS: ${{ inputs.targets }}
     OVERRIDE: ${{ inputs.override-deps }}
+    COLLECTIONS: ${{ inputs.install-galaxy-collections }}
+    MODULES: ${{ inputs.install-galaxy-modules }}

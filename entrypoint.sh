@@ -76,6 +76,15 @@ override_python_packages() {
   >&2 echo "Completed installing override dependencies..."
 }
 
+install_galaxy_collections() {
+  [[ -n "${COLLECTIONS}" ]] && ansible-galaxy collection install $COLLECTIONS
+  >&2 echo "Completed installing galaxy collection dependencies..."
+}
+
+install_galaxy_modules() {
+  [[ -n "${MOUDLES}" ]] && ansible-galaxy install $MOUDLES
+  >&2 echo "Completed installing galaxy module dependencies..."
+}
 # Generates client.
 # args:
 #   $@: additional options
@@ -87,6 +96,8 @@ ansible::lint() {
   pushd "${GITHUB_WORKSPACE}"
 
   override_python_packages
+  install_galaxy_collections
+  install_galaxy_modules
   local opts
   opts=$(parse_args $@ || exit 1)
 

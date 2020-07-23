@@ -41,6 +41,16 @@ jobs:
           ansible==2.9
           ansible-lint==4.2.0
         # [optional]
+        # Install extra galaxy collections
+        # Must be publiched to Ansible Galaxy
+        install-galaxy-collections: |
+          my-galaxy-collection
+        # [optional]
+        # Install extra galaxy modules
+        # Must be published to Ansible Galaxy
+        install-galaxy-modules: | 
+          my-galaxy-module
+        # [optional]
         # Arguments to be passed to the ansible-lint
 
         # Options:
