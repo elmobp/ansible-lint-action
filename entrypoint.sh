@@ -82,7 +82,7 @@ install_galaxy_collections() {
 }
 
 install_galaxy_modules() {
-  [[ -n "${MOUDLES}" ]] && ansible-galaxy install $MOUDLES
+  [[ -n "${MODULES}" ]] && ansible-galaxy install $MODULES
   >&2 echo "Completed installing galaxy module dependencies..."
 }
 # Generates client.
